@@ -4,12 +4,12 @@
   (:require [immutant.daemons :as daemons]))
 
 (def config  (KafkaConfig. (doto (Properties.)
-  (.setProperty "port"       , "9090");
-  (.setProperty "brokerid"   , "1")
-  (.setProperty "log.dir"    , "/var/log/kafka/")
-  (.setProperty "zk.connect" , "zookeeper"))))
+  (.setProperty "port"       		"9092");
+  (.setProperty "broker.id"  		"1")
+  (.setProperty "log.dir"    		"/var/log/kafka/")
+  (.setProperty "zookeeper.connect" "zookeeper"))))
 
-(def server (KafkaServer. config))
+(def server (KafkaServer. config (kafka.utils.SystemTime$/MODULE$)))
 
 
 ;; start a daemon
