@@ -3,11 +3,13 @@
             [java.util    Properties])
   (:require [immutant.daemons :as daemons]))
 
+;https://kafka.apache.org/documentation.html#brokerconfigs
 (def config  (KafkaConfig. (doto (Properties.)
-  (.setProperty "port"       		"9092");
+  (.setProperty "port"       		"9090")
   (.setProperty "broker.id"  		"1")
-  (.setProperty "log.dir"    		"/var/log/kafka/")
-  (.setProperty "zookeeper.connect" "zookeeper"))))
+  (.setProperty "log.dir"    		"/var/log/kafka")
+  (.setProperty "zookeeper.connect" "zookeeper")
+  (.setProperty "auto.create.topics.enable" "true"))))
 
 (def server (KafkaServer. config (kafka.utils.SystemTime$/MODULE$)))
 
