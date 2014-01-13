@@ -1,6 +1,8 @@
 .DS_STORE
 *.sublime-project
 *.sublime-workspace
+*.ima
+*.jar
 /lib
 .lein-deps-sum
 /logs

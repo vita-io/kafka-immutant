@@ -5,9 +5,10 @@
 
 ;https://kafka.apache.org/documentation.html#brokerconfigs
 (def config  (KafkaConfig. (doto (Properties.)
-  (.setProperty "port"       		"9090")
-  (.setProperty "broker.id"  		"1")
-  (.setProperty "log.dir"    		"/var/log/kafka")
+  (.setProperty "port"              "9090")
+  (.setProperty "broker.id"         "1")
+  (.setProperty "log.dir"           "/var/log/kafka")
+  (.setProperty "num.partitions"    "8")
   (.setProperty "zookeeper.connect" "zookeeper")
   (.setProperty "auto.create.topics.enable" "true"))))
 
